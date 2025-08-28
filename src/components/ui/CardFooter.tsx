@@ -1,7 +1,7 @@
 type Props = {
     pic: string;
 };
-const CardFooter = ({ pic }: Props) => {
+const Author = ({ pic }: Props) => {
     return (
         <div className="flex items-center gap=4 ">
             <span className="flex items-center gap-2">
@@ -22,4 +22,4 @@ const CardFooter = ({ pic }: Props) => {
         </div>
     );
 };
-export default CardFooter;
+export default Author;
