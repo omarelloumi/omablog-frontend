@@ -2,16 +2,17 @@ import ResponsiveNavBar from "./ResponsiveNavBar";
 import { useState } from "react";
 import {HiMenu} from "react-icons/hi";
 import {ThemeSwitch} from "@/components/ui/ThemeSwitch.tsx";
+import LogoLight from "@/assets/LogoLight.tsx";
 
 
 const NavBar = () => {
     const [showNavBar, setShowNavBar] = useState<boolean>(false)
-    const [darkTheme, setDarkTheme] = useState<boolean>(true);
+    const [darkTheme, setDarkTheme] = useState<boolean>(false);
     return (
         <>
-            <nav className="max-container padding-x py-6 flex justify-between items-center  gap-6 sticky top-0 z-10 bg-[#FFFFFF] dark:bg-[#141624]">
+            <nav className="padding-x py-6 flex justify-between items-center  gap-6 sticky top-0 z-10 bg-[#FFFFFF] border-b-[#3B3C4A] border-b dark:bg-[#141624]">
                 <a  className="text-[#141624] text-2xl dark:text-[#FFFFFF]">
-                    omaBlog
+                    <LogoLight className="h-12 w-auto"/>
                 </a>
                 <ul className="flex items-center  justify-end gap-9 text-[#3B3C4A] lg:flex-1 max-md:hidden dark:text-[#FFFFFF]">
                     <li>Hi, Omar</li>
