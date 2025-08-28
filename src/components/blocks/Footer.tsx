@@ -11,14 +11,12 @@ const Footer = () => {
                     <a href="/" className="text-[#181A2A] text-[16px] font-semibold dark:text-white">
                         <LogoLight className={"h-12 w-auto"} />
                     </a>
-
                     <p className="text-[14px] text-[#696A75] leading-[1.5]  max-md:text-center dark:text-[#97989F]">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
                         ad minim veniam
                     </p>
                 </div>
-
                 <div className="text-[#181A2A] text-[14px] flex flex-col gap-4 px-4 max-md:items-center">
                     <p className=" font-semibold text-[16px] dark:text-white">
                         Quick Links
@@ -32,7 +30,6 @@ const Footer = () => {
                         <li>Contact</li>
                     </ul>
                 </div>
-
                 <div className="text-[#181A2A] text-[14px] flex flex-col gap-4 px-4 max-md:items-center">
                     <p className=" font-semibold text-[16px] dark:text-white">Category</p>
                     <ul className="flex flex-col gap-4  text-[#3B3C4A] max-md:items-center dark:text-[#97989F]">
@@ -44,7 +41,6 @@ const Footer = () => {
                         <li>Sports</li>
                     </ul>
                 </div>
-
                 <div className="bg-white w-[350px] px-6 flex flex-col items-center justify-center gap-2  rounded-lg dark:bg-[#242535] py-6">
                     <h3 className="font-semibold text-xl  dark:text-white">
                         Weekly Newsletter
@@ -64,7 +60,6 @@ const Footer = () => {
                     </button>
                 </div>
             </div>
-
             <div className="py-3 flex items-center gap-6 cursor-pointer max-md:mt-6 max-md:justify-center">
                 <FaInstagram className="dark:text-white text-[20px] text-[#141624]" />
                 <FaFacebookF className="dark:text-white text-[20px] text-[#141624]" />
