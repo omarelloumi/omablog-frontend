@@ -1,16 +1,23 @@
 import {CiMail} from "react-icons/ci";
-import {FaFacebookF, FaInstagram, FaYoutube} from "react-icons/fa";
-import {BsTwitterX} from "react-icons/bs";
 import LogoLight from "@/assets/LogoLight.tsx";
 import {Link} from "react-router-dom";
+import LogoDark from "@/assets/LogoDark.tsx";
 
-const Footer = () => {
+type Props = {
+    darkMode : boolean
+}
+
+const Footer = ({ darkMode } : Props) => {
     return (
         <footer className="bg-[#F6F6F7] padding-x py-16 dark:bg-[#141624]">
             <div className="flex max-lg:gap-9 lg:gap-4 flex-wrap max-md:justify-center justify-between">
                 <div className="w-[300px] flex flex-col gap-6 max-md:items-center">
                     <Link to={"/"} className="text-[#181A2A] text-[16px] font-semibold dark:text-white">
-                        <LogoLight className={"h-12 w-auto"} />
+                        {
+                            darkMode ?
+                                <LogoDark className="h-12 w-auto"/> :
+                                <LogoLight className="h-12 w-auto" />
+                        }
                     </Link>
                     <p className="text-[14px] text-[#696A75] leading-[1.5]  max-md:text-center dark:text-[#97989F]">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -52,20 +59,14 @@ const Footer = () => {
                     <div className="w-full relative">
                         <input
                             placeholder="Your Email"
-                            className="border border-[#DCDDDF] rounded-sm h-[40px] px-3 py-3 w-full text-[14px] dark:bg-[#181A2A] "
+                            className="border border-[#DCDDDF] rounded-sm h-[40px] px-3 py-3 w-full text-[14px] dark:bg-[#181A2A] dark:text-[#97989F]"
                         />
                         <CiMail className="absolute top-[12px] right-[10px] text-[16px] dark:text-[#97989F]" />
                     </div>
-                    <button className="bg-[#4B6BFB] text-[#FFFFFF] text-[16px] rounded-md w-full py-3">
+                    <button className="bg-[#5D2DE6] text-[#FFFFFF] text-[16px] rounded-md w-full py-3">
                         Subscribe
                     </button>
                 </div>
-            </div>
-            <div className="py-3 flex items-center gap-6 cursor-pointer max-md:mt-6 max-md:justify-center">
-                <FaInstagram className="dark:text-white text-[20px] text-[#141624]" />
-                <FaFacebookF className="dark:text-white text-[20px] text-[#141624]" />
-                <BsTwitterX className="dark:text-white text-[20px] text-[#141624]" />
-                <FaYoutube className="dark:text-white text-[20px] text-[#141624]" />
             </div>
         </footer>
     );
