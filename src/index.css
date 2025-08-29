@@ -29,7 +29,7 @@
     }
 
     .active{
-        @apply bg-[#4B6BFB] text-white px-3 py-2 rounded-md
+        @apply bg-[#5D2DE6] text-white px-3 py-2 rounded-md
     }
 
     .padding {
