@@ -1,5 +1,5 @@
 import Badge from "@/components/ui/Badge.tsx";
-import Author from "@/components/ui/CardFooter.tsx";
+import Author from "@/components/ui/Author.tsx";
 
 type Props = {
     banner: string;

@@ -3,6 +3,7 @@ import { useState } from "react";
 import {HiMenu} from "react-icons/hi";
 import {ThemeSwitch} from "@/components/ui/ThemeSwitch.tsx";
 import LogoLight from "@/assets/LogoLight.tsx";
+import {Link} from "react-router-dom";
 
 
 const NavBar = () => {
@@ -11,11 +12,16 @@ const NavBar = () => {
     return (
         <>
             <nav className="padding-x py-6 flex justify-between items-center  gap-6 sticky top-0 z-10 bg-[#FFFFFF] border-b-[#3B3C4A] border-b dark:bg-[#141624]">
-                <a  className="text-[#141624] text-2xl dark:text-[#FFFFFF]">
+                <Link to={"/"}  className="text-[#141624] text-2xl dark:text-[#FFFFFF]">
                     <LogoLight className="h-12 w-auto"/>
-                </a>
+                </Link>
                 <ul className="flex items-center  justify-end gap-9 text-[#3B3C4A] lg:flex-1 max-md:hidden dark:text-[#FFFFFF]">
-                    <li>Hi, Omar</li>
+                    <li>
+                        <Link to={"/profile"}>
+                            Hi, Omar
+                        </Link>
+                    </li>
+
 
                     <li>Logout</li>
                     <li>Login</li>
