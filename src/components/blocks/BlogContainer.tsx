@@ -1,10 +1,10 @@
 import BlogCard from "@/components/cards/BlogCard.tsx";
 import Spinner from "@/components/ui/Spinner.tsx";
-import type {Blog} from "@/models/Blog.ts";
+import type {BlogPaginatedResponse} from "@/models/Blog.ts";
 
 type Props = {
     isPending: boolean;
-    blogs: Blog[];
+    blogs: BlogPaginatedResponse,
 }
 
 const BlogContainer = ({ isPending, blogs }: Props) => {
@@ -20,7 +20,7 @@ const BlogContainer = ({ isPending, blogs }: Props) => {
 
             <div className="flex items-center gap-6 justify-center flex-wrap">
                 {
-                    blogs.map((blog) => (
+                    blogs.results.map((blog) => (
                         <BlogCard key={blog.id} blog={blog}/>
                     ))
                 }
