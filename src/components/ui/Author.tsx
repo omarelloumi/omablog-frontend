@@ -1,5 +1,6 @@
 import type {Blog} from "@/models/Blog.ts";
 import {BASE_URL} from "@/api.ts";
+import {FormatDate} from "@/lib/utils.ts";
 
 type Props = {
     blog: Blog;
@@ -22,7 +23,7 @@ const Author = ({ blog }: Props) => {
                 </small>
             </span>
                 <small className="text-[#97989F] text-[12px] font-semibold ml-3">
-                    12 November, 2024
+                    {blog.published_at ? FormatDate(blog.published_at) : ""}
                 </small>
         </div>
     );
