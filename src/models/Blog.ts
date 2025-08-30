@@ -20,3 +20,11 @@ export interface Blog {
     category?: BlogCategory | null;
     featured_image?: string | null;
 }
+
+
+export interface BlogPaginatedResponse {
+    count: number;
+    next: string | null;
+    previous: string | null;
+    results: Blog[];
+}
