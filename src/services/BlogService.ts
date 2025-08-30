@@ -3,7 +3,7 @@ import axios from "axios";
 
 export async function getBlogs() {
     try {
-        const response = await api.get("blog_list");
+        const response = await api.get("show_blogs");
         return response.data;
     } catch (err: unknown) {
         if (axios.isAxiosError(err)) {

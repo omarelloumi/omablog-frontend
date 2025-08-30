@@ -3,10 +3,13 @@ import AppLayout from "@/components/layouts/AppLayout.tsx";
 import HomePage from "@/pages/HomePage.tsx";
 import ProfilePage from "@/pages/ProfilePage.tsx";
 import BlogDetailPage from "@/pages/BlogDetailPage.tsx";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 
+const queryClient = new QueryClient();
 
 function App() {
   return (
+      <QueryClientProvider client={queryClient}>
           <BrowserRouter>
               <Routes>
                   <Route path="/" element={<AppLayout />}>
@@ -16,6 +19,7 @@ function App() {
                   </Route>
               </Routes>
           </BrowserRouter>
+      </QueryClientProvider>
   )
 }
 
