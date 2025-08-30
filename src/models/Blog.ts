@@ -15,7 +15,7 @@ export interface Blog {
     author: User | null;
     created_at: string;
     updated_at: string;
-    published_at?: string | null;
+    published_at?: string | null | undefined;
     is_draft: boolean;
     category?: BlogCategory | null;
     featured_image?: string | null;
