@@ -1,39 +1,44 @@
 import Badge from "@/components/ui/Badge.tsx";
 import Author from "@/components/ui/Author.tsx";
+import {useQuery} from "@tanstack/react-query";
+import {getBlog} from "@/services/BlogService.ts";
+import {useParams} from "react-router-dom";
+import Spinner from "@/components/ui/Spinner";
 
-type Props = {
-    banner: string;
-};
-const BlogDetail = ({ banner }: Props) => {
+const BlogDetail = () => {
+    const { slug } = useParams();
+    console.log(slug);
+
+    const {
+        isPending,
+        data:article,
+    } = useQuery({
+        queryKey: ["blogs", slug],
+        queryFn: () => getBlog(slug),
+    });
+
+
+    if (isPending) {
+        return <Spinner />;
+    }
+
     return (
         <div className="padding-dx max-container py-9">
-            <Badge category={"Web Development"} />
+            <Badge category={article.category} />
 
             <div className="flex justify-between items-center">
                 <h2 className="py-6 leading-normal text-2xl md:text-3xl text-[#181A2A] tracking-wide font-semibold dark:text-[#FFFFFF]">
-                    Build and Ecommerce Web App with Django and React
+                    {article.title}
                 </h2>
             </div>
 
-            <Author pic={"profile.png"} />
+            <Author blog={article} />
 
             <div className="w-full h-[350px] my-9 overflow-hidden rounded-sm">
-                <img className="w-full h-full object-cover rounded-sm" src={banner} />
+                <img className="w-full h-full object-cover rounded-sm" src={article.featured_image ? article.featured_image : ""}  alt={"banner"}/>
             </div>
             <p className="text-[16px] leading-[2rem] text-justify text-[#3B3C4A] dark:text-[#BABABF]">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-                illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-                odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum
-                quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
-                eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam
-                corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-                Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-                quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
-                voluptas nulla pariatur?
+                { article.content ? article.content : ""}
             </p>
         </div>
     );
