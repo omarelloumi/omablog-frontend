@@ -24,8 +24,11 @@ const SignupPage = () => {
 
   const mutation = useMutation({
     mutationFn: (data: SignupFormValues) => {
-
-        return registerUser(data)
+        const {confirmPassword , ...user} = data
+        if(confirmPassword !== password) {
+            return Promise.reject(new Error("Passwords do not match"))
+        }
+        return registerUser(user)
     },
     onSuccess: () => {
       toast.success("You have successfully created an account!!!");
