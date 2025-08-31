@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
-type SignupFormValues = {
+type RegisterFormValues = {
   username: string;
   email: string;
   first_name: string;
@@ -16,14 +16,14 @@ type SignupFormValues = {
   confirmPassword: string;
 };
 
-const SignupPage = () => {
-  const { register, handleSubmit, formState, reset, watch } = useForm<SignupFormValues>();
+const RegisterPage = () => {
+  const { register, handleSubmit, formState, reset, watch } = useForm<RegisterFormValues>();
   const { errors } = formState;
 
   const password = watch("password");
 
   const mutation = useMutation({
-    mutationFn: (data: SignupFormValues) => {
+    mutationFn: (data: RegisterFormValues) => {
         const {confirmPassword , ...user} = data
         if(confirmPassword !== password) {
             return Promise.reject(new Error("Passwords do not match"))
@@ -39,7 +39,7 @@ const SignupPage = () => {
       }
   });
 
-  function onSubmit(data: SignupFormValues) {
+  function onSubmit(data: RegisterFormValues) {
     mutation.mutate(data);
   }
 
@@ -50,7 +50,7 @@ const SignupPage = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="flex flex-col gap-2 justify-center items-center mb-2">
-        <h3 className="font-semibold text-2xl">SignUp Form</h3>
+        <h3 className="font-semibold text-2xl">Register Form</h3>
         <p>Create your account to get started!</p>
       </div>
 
@@ -185,7 +185,7 @@ const SignupPage = () => {
               <small className="text-[16px]">Creating user...</small>
             </>
           ) : (
-            <small className="text-[16px]">Signup</small>
+            <small className="text-[16px]">Register</small>
           )}
         </button>
         <Link to="/login" className="text-[14px] mt-1">
@@ -196,4 +196,4 @@ const SignupPage = () => {
   );
 };
 
-export default SignupPage;
+export default RegisterPage;
