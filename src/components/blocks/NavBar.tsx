@@ -43,7 +43,16 @@ const NavBar = ({ darkMode, toggleDarkMode } : Props) => {
                             Register
                         </NavLink>
                     </li>
-                    <li className="font-semibold">Create post</li>
+                    <li className="font-semibold">
+                        <NavLink
+                            to="/createBlog"
+                            className={({ isActive }) => (isActive ? "active" : "")}
+                        >
+                            Create Post
+                        </NavLink>
+                    </li>
+
+
                 </ul>
 
                 <ThemeSwitch checked={darkMode} onCheckedChange={toggleDarkMode} />
