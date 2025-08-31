@@ -1,9 +1,9 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import AppLayout from "@/components/layouts/AppLayout.tsx";
 import HomePage from "@/pages/HomePage.tsx";
-import ProfilePage from "@/pages/ProfilePage.tsx";
 import BlogDetailPage from "@/pages/BlogDetailPage.tsx";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import SignUpPage from "@/pages/SignUpPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -15,8 +15,8 @@ function App() {
                   <Route path="/" element={<AppLayout />}>
                       <Route index element={<HomePage />} />
                       <Route path="detail/:slug" element={<BlogDetailPage/>} />
-
-                      <Route path="profile" element={<ProfilePage />} />
+                      <Route path="signup/" element={<SignUpPage/>}/>
+                      {/*<Route path="profile" element={<ProfilePage />} />*/}
                   </Route>
               </Routes>
           </BrowserRouter>
