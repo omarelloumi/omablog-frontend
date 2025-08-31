@@ -4,7 +4,8 @@ import type {User} from "@/models/User.ts";
 
 export async function registerUser(data: User){
     try{
-        const response = await api.post("register_user/", data)
+        console.log(data)
+        const response = await api.post("register_user/", data )
         return response.data
     }
 
