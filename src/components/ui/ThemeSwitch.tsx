@@ -1,4 +1,4 @@
-import { Switch } from "@/components/ui/Switch.tsx";
+import { Switch } from "@/components/ui/switch.tsx";
 import { Moon, Sun } from "lucide-react";
 
 export function ThemeSwitch({
