@@ -33,7 +33,10 @@ const SignupPage = () => {
     onSuccess: () => {
       toast.success("You have successfully created an account!!!");
       reset();
-    }
+    },
+      onError: (error) => {
+      toast.error(error.message);
+      }
   });
 
   function onSubmit(data: SignupFormValues) {
