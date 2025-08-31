@@ -14,7 +14,8 @@ function App() {
               <Routes>
                   <Route path="/" element={<AppLayout />}>
                       <Route index element={<HomePage />} />
-                      <Route path="detail" element={<BlogDetailPage banner={"banner.jpg"} />} />
+                      <Route path="detail/:slug" element={<BlogDetailPage/>} />
+
                       <Route path="profile" element={<ProfilePage />} />
                   </Route>
               </Routes>

@@ -17,7 +17,7 @@ export interface Blog {
     updated_at: string;
     published_at?: string | null | undefined;
     is_draft: boolean;
-    category?: BlogCategory | null;
+    category: BlogCategory;
     featured_image?: string | null;
 }
 

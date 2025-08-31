@@ -3,7 +3,7 @@ import axios from "axios";
 
 export async function getBlogs(page:string | number) {
     try {
-        const response = await api.get("show_blogs?page="+page);
+        const response = await api.get("blogs?page="+page);
         return response.data;
     } catch (err: unknown) {
         if (axios.isAxiosError(err)) {
@@ -13,5 +13,20 @@ export async function getBlogs(page:string | number) {
             throw err;
         }
         throw new Error("Unexpected error while fetching blogs");
+    }
+}
+
+export async function getBlog(slug?:string) {
+    try {
+        const response = await api.get("blogs/"+slug);
+        return response.data;
+    } catch (err: unknown) {
+        if (axios.isAxiosError(err)) {
+            throw new Error(err.response?.data?.message ?? err.message);
+        }
+        if (err instanceof Error) {
+            throw err;
+        }
+        throw new Error("Unexpected error while fetching the blog");
     }
 }
