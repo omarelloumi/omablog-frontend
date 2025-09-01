@@ -1,10 +1,14 @@
 import { jwtDecode } from "jwt-decode"
-import React, { useState, useEffect }  from "react"
+import {useState, useEffect, type JSX} from "react"
 import Spinner from "@/components/ui/Spinner.tsx"
 import { Navigate, useLocation } from "react-router-dom"
 import api from "@/api"
 
-const Protected = ({children}) => {
+type Props = {
+    children : JSX.Element | JSX.Element[] | string | number | boolean
+}
+
+const Protected = ({children}: Props ) => {
 
     const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null)
     const location = useLocation()
