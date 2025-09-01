@@ -17,8 +17,6 @@ const Protected = ({children}: Props ) => {
         authorize().catch(() => setIsAuthorized(false))
     })
 
-
-
     async function refreshToken(){
 
         const refresh = localStorage.getItem("refresh")
@@ -37,17 +35,11 @@ const Protected = ({children}: Props ) => {
 
         }
 
-
         catch(err){
             setIsAuthorized(false)
             console.log(err)
         }
-
-
-
-
     }
-
 
     async function authorize(){
         const token = localStorage.getItem("access")
@@ -55,7 +47,6 @@ const Protected = ({children}: Props ) => {
             setIsAuthorized(false)
             return
         }
-
         const decodedToken = jwtDecode(token)
         const expiry_date = decodedToken.exp
         const current_time = Date.now()/1000
@@ -65,15 +56,8 @@ const Protected = ({children}: Props ) => {
                 return
             }
         }
-
-
         setIsAuthorized(true)
-
-
-
-
     }
-
 
     if(isAuthorized === null){
         return <Spinner />
