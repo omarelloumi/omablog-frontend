@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { registerUser } from "@/services/UserService.tsx";
+import { registerUser } from "@/services/UserService.ts";
 import SmallSpinner from "@/components/ui/SmallSpinner";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
