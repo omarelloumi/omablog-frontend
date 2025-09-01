@@ -4,11 +4,7 @@ import Spinner from "@/components/ui/Spinner.tsx"
 import { Navigate, useLocation } from "react-router-dom"
 import api from "@/api"
 
-type Props = {
-    children: React.ReactNode;
-}
-
-const Protected = ({children}: Props) => {
+const Protected = ({children}) => {
 
     const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null)
     const location = useLocation()
@@ -62,13 +58,13 @@ const Protected = ({children}: Props) => {
         if (expiry_date){
             if(current_time > expiry_date){
                 await refreshToken()
+                return
             }
         }
 
 
-        else{
-            setIsAuthorized(true)
-        }
+        setIsAuthorized(true)
+
 
 
 
